@@ -1,0 +1,25 @@
+<h1>
+  Add child page to
+  <a href="/<%=@page.parent.url unless @page.parent.nil?%>">
+    <%=@page.parent.title unless @page.parent.nil?%><%='root' if @page.parent.nil?%>
+  </a>
+</h1>
+<%= form_for @page, :url => { :action => 'add' } do |t| %>
+
+    <ul>
+      <% @page.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+    <br />
+    <%= t.label :title %>
+    <%= t.text_field :title %>
+    <br />
+    <%= t.label :content %>
+    <%= t.text_area :content %>
+    <br />
+    <%= submit_tag 'Add'%>
+<% end %>

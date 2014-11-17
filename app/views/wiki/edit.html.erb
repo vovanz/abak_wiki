@@ -1,0 +1,17 @@
+<h1>Edit page <a href="/<%= @page.url %>"><%= @page.title %></a></h1>
+<%= form_for @page, :url => {:action => 'edit'} do |t| %>
+
+    <ul>
+      <% @page.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+
+    <%= t.label :title %>
+    <%= t.text_field :title %>
+    <br/>
+    <%= t.label :content %>
+    <%= t.text_area :content %>
+    <br/>
+    <%= submit_tag 'Edit' %>
+<% end %>

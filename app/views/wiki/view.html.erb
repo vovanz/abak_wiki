@@ -1,0 +1,10 @@
+<h1><%= @page.title %></h1>
+<p>
+  <a href="/<%=@page.parent_url%>">go to parent</a>
+  |
+  <a href="/<%=@page.url%>/edit">edit</a>
+  |
+  <a href="/<%=@page.url%>/add">add child</a>
+</p>
+<p><%= sanitize(WikiHelper::Markup::markup(@page.content)) %></p>
+

@@ -1,0 +1,9 @@
+<ul>
+  <% @pages.each do |page| %>
+      <li style="margin-left: <%=page.level*10%>px;">
+        <a href="/<%= page.url %>"><%= page.title %></a>
+      </li>
+  <% end %>
+</ul>
+<br />
+<a href="/add">create new root page</a>
