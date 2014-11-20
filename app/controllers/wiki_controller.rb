@@ -3,14 +3,12 @@ class WikiController < ApplicationController
     @page_title = 'Abak wiki'
   end
 
-  caches_page :tree, :view, :add, :edit
+  caches_page :tree, :view
 
   # Expire all affected pages
   # @param [String] url
   def expire_by_page_url(url)
     expire_page '/' + url
-    expire_page '/' + url + '/add'
-    expire_page '/' + url + '/edit'
   end
 
   def tree
